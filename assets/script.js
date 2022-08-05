@@ -2,19 +2,6 @@ var today = moment().format('dddd, MMM Do YYYY');
 $("#currentDay").html(today);
 
 $(document).ready(function () {
-    $(".saveBtn").on("click", function () {
-        var text = $(this).siblings(".description").val();
-        var time = $(this).parent().attr("id");
-
-        localStorage.setItem(time, text);
-    })
-
-    // document.getElementsByClassName("saveBtn").addEventlistener("click",message());
-    // function message()
-    // {
-    //     document.getElementById("displaymessage").innerHTML = "Saved!";
-    // }
-
 
     function timeTracker() {
         var timeNow = moment().hour();
@@ -66,4 +53,17 @@ $(document).ready(function () {
     $("#hour22 .description").val(localStorage.getItem("hour22"));
     $("#hour23 .description").val(localStorage.getItem("hour23"));
     timeTracker();
+})
+
+$(".saveBtn").on("click", function (){
+    var text = $(this).siblings(".description").val();
+    var time = $(this).parent().attr("id");
+
+    localStorage.setItem(time, text);
+})
+var timeframe = moment().format("LLLL");
+console.log(timeframe);
+$(".btn").on("click",function(){
+    $("#displaymessage").text(`Saved! @ ${timeframe}`);
+
 })
