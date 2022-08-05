@@ -5,7 +5,6 @@ $("#currentDay").html(today);
 //This is the function for time tracker for whether the current time is either present time, future time, or past time.
 $(document).ready(function () 
 {
-
     function timeTracker() 
     {
         var timeNow = moment().hour();
@@ -31,7 +30,6 @@ $(document).ready(function ()
                 $(this).removeClass("present");
                 $(this).removeClass("past");
                 $(this).addClass("future");
-
             }
         })
     }
