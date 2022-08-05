@@ -3,20 +3,26 @@ var today = moment().format('dddd, MMM Do YYYY');
 $("#currentDay").html(today);
 
 //This is the function for time tracker for whether the current time is either present time, future time, or past time.
-$(document).ready(function () {
+$(document).ready(function () 
+{
 
-    function timeTracker() {
+    function timeTracker() 
+    {
         var timeNow = moment().hour();
 
-        $(".time-block").each(function () {
+        $(".time-block").each(function () 
+        {
             var blockTime = parseInt($(this).attr("id").split("hour")[1]);
-
-            if (blockTime < timeNow) {
+            
+            //if statement to determine the time block changes for the representation of past,present,future.
+            if (blockTime < timeNow) 
+            {
                 $(this).removeClass("future");
                 $(this).removeClass("present");
                 $(this).addClass("past");
             }
-            else if (blockTime === timeNow) {
+            else if (blockTime === timeNow) 
+            {
                 $(this).removeClass("past");
                 $(this).removeClass("future");
                 $(this).addClass("present");
@@ -29,6 +35,7 @@ $(document).ready(function () {
             }
         })
     }
+
     //Local storage for every hour, so that the value of every hour doesnt disappear even if the html refreshes.
     $("#hour0 .description").val(localStorage.getItem("hour0"));
     $("#hour1 .description").val(localStorage.getItem("hour1"));
@@ -58,16 +65,18 @@ $(document).ready(function () {
 })
 
 //Button function that sets the local storage upon clicking the save button
-$(".saveBtn").on("click", function (){
+$(".saveBtn").on("click", function ()
+{
     var text = $(this).siblings(".description").val();
     var time = $(this).parent().attr("id");
-
     localStorage.setItem(time, text);
 })
+
 //In addition to the button function, every time the button function is pressed, it will display that it was "saved" at a certain time for user to see and confirm that they pressed save.
 var timeframe = moment().format("LLLL");
 console.log(timeframe);
-$(".btn").on("click",function(){
+$(".btn").on("click",function()
+{
     $("#displaymessage").text(`Saved! @ ${timeframe}`);
 
 })
