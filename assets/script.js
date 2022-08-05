@@ -8,7 +8,14 @@ $(document).ready(function () {
 
         localStorage.setItem(time, text);
     })
-   
+
+    // document.getElementsByClassName("saveBtn").addEventlistener("click",message());
+    // function message()
+    // {
+    //     document.getElementById("displaymessage").innerHTML = "Saved!";
+    // }
+
+
     function timeTracker() {
         var timeNow = moment().hour();
 
